@@ -4221,17 +4221,6 @@ angular.module('myApp.view2', ['ngRoute'])
 }]);
 ;'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view3', {
-    templateUrl: 'view3/view3.html',
-    controller: 'View2Ctrl',
-    controllerAs: 'vm'
-  });
-}]);
-;'use strict';
-
 angular.module('myApp.portArea', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
