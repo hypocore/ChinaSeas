@@ -6,12 +6,15 @@ angular.module('myApp', [
   'ngAnimate',
   'myApp.view1',
   'myApp.view2',
+  'myApp.portArea',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+
   $locationProvider.hashPrefix('!');
 
   $routeProvider.otherwise({redirectTo: '/view1'});
+
 }]).directive('myCustomer', function() {
   return {
     template: 'Name: James Address: Here'
@@ -4218,6 +4221,28 @@ angular.module('myApp.view2', ['ngRoute'])
 }]);
 ;'use strict';
 
+angular.module('myApp.view2', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/view3', {
+    templateUrl: 'view3/view3.html',
+    controller: 'View2Ctrl',
+    controllerAs: 'vm'
+  });
+}]);
+;'use strict';
+
+angular.module('myApp.portArea', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/port', {
+    templateUrl: 'views/port/port.html',
+    controller: 'PortController',
+    controllerAs: 'vm'
+  });
+}]);
+;'use strict';
+
 angular.module('myApp.view2')
 .controller('View2Ctrl', ['$scope', 
                             '$rootScope', 
@@ -4390,6 +4415,48 @@ angular.module('myApp.view2')
 
 }]);
 
+;'use strict';
+
+angular.module('myApp.portArea')
+.controller('PortController', ['$scope',
+                            '$rootScope',
+                            function($scope,
+                                    $rootScope) {
+
+    var vm = this;
+
+    angular.extend(vm, {
+        example: '',
+        example2: 0,
+        buyProduct: buyProduct
+    });
+
+    function buyProduct(product){
+
+    }
+
+}]);
+;'use strict';
+
+angular.module('myApp.view2')
+.controller('TravelController', ['$scope',
+                            '$rootScope',
+                            function($scope,
+                                    $rootScope) {
+
+    var vm = this;
+
+    angular.extend(vm, {
+        example: '',
+        example2: 0,
+        buyProduct: buyProduct
+    });
+
+    function buyProduct(product){
+
+    }
+
+}]);
 ;'use strict';
 
 angular.module('myApp.view2')

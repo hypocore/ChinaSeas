@@ -6,12 +6,15 @@ angular.module('myApp', [
   'ngAnimate',
   'myApp.view1',
   'myApp.view2',
+  'myApp.portArea',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+
   $locationProvider.hashPrefix('!');
 
   $routeProvider.otherwise({redirectTo: '/view1'});
+
 }]).directive('myCustomer', function() {
   return {
     template: 'Name: James Address: Here'
