@@ -1,3 +1,25 @@
-<section>
+<section port-view>
 It's the port
+
+<table id="productList">
+    <!-- <li ng-repeat="product in localgoods | orderBy:clickOrder | filter: search" ng-show="product.legal"> -->
+    <tr>
+      <!-- Click orders based on letter selected in keyboard popup -->
+      <th><button style="display: flex; align-items: center">Product<div style="display:inline-block"><div>^</div><div>v</div></div></button></th>
+      <!-- Click orders high to low and low to high, needs a block with two arrows next to it to highlight sort order -->
+      <th><button style="display: flex; align-items: center">Cost<div style="display:inline-block"><div>^</div><div>v</div></div></button></th>
+      <!-- Click orders high to low and low to high, needs a block with two arrows next to it to highlight sort order -->
+      <th><button style="display: flex; align-items: center">Ship<div style="display:inline-block"><div>^</div><div>v</div></div></button></th>
+      <!-- Click orders high to low and low to high, needs a block with two arrows next to it to highlight sort order -->
+      <th><button style="display: flex; align-items: center">Dock<div style="display:inline-block"><div>^</div><div>v</div></div></button></th>
+    </tr>
+  <tr ng-repeat="product in vm.portGoods">
+    <td>{{product.name}}</td>
+    <td>{{product.unitPrice | currency: '£'}}</td>
+    <!-- When you click the following it sells a unit, long click brings up a number pad to enter the amount -->
+    <td><button ng-click="">{{product.shipAmount}}</button></td>
+    <!-- Buys a unit, long click brings up number pad -->
+    <td><button ng-click="">{{product.dockAmount}}</button></td>
+  </tr>
+</table>
 </section>

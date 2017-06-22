@@ -22,6 +22,7 @@ module.exports = function(grunt) {
               'app/directives/ngFocus.js',
               'app/directives/shipAnimation.js',
               'app/directives/moneyMask.js',
+              'app/directives/portView.js',
               'app/components/version/version.js',
               'app/components/version/version-directive.js',
               'app/components/version/interpolate-filter.js',],

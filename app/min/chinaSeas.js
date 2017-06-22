@@ -4225,9 +4225,7 @@ angular.module('myApp.portArea', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/port', {
-    templateUrl: 'views/port/port.html',
-    controller: 'PortController',
-    controllerAs: 'vm'
+    templateUrl: 'views/port/port.html'
   });
 }]);
 ;'use strict';
@@ -4409,19 +4407,26 @@ angular.module('myApp.view2')
 angular.module('myApp.portArea')
 .controller('PortController', ['$scope',
                             '$rootScope',
+                            'portFactory',
                             function($scope,
-                                    $rootScope) {
+                                    $rootScope,
+                                    portFactory) {
 
     var vm = this;
 
     angular.extend(vm, {
+        portGoods: {},
         example: '',
         example2: 0,
-        buyProduct: buyProduct
+        init: init
     });
 
-    function buyProduct(product){
+    init();
 
+    function init(){
+      console.log('port controller initialized');
+      // fetch the json data here, but it's the wrong time to get it.
+      vm.portGoods = portFactory.getPortGoods();
     }
 
 }]);
@@ -4448,12 +4453,12 @@ angular.module('myApp.view2')
 }]);
 ;'use strict';
 
-angular.module('myApp.view2')
-.factory('portFactory', ['$http', 
+angular.module('myApp')
+.factory('portFactory', ['$http',
                         '$timeout',
-                        function($http, 
+                        function($http,
                                 $timeout) {
-    
+
     var portGoods = [];
     var portWealth;
     var factory = this;
@@ -4528,7 +4533,7 @@ angular.module('myApp.view2')
             for(var i = 0; i < response.length; i++){
                 portGoods.push(response[i]);
             };
-          
+
         }).catch(function(error){
             console.log('error');
         });
@@ -4556,7 +4561,6 @@ angular.module('myApp.view2')
 
 
 }]);
-
 ;'use strict';
 
 angular.module('myApp.view2')
@@ -4651,6 +4655,20 @@ angular.module('myApp.view2')
         element.val(1);
         console.log("hey");
       });
+    }
+}]);
+;angular.module('myApp')
+.directive("portView", ['$timeout', function($timeout){
+  return {
+    restrict: 'A',
+    link: link,
+    controller: 'PortController',
+    controllerAs: 'vm'
+
+    }
+
+    function link(scope, element, attrs, ctrl){
+      console.log('Port directive initialized');
     }
 }]);
 ;'use strict';

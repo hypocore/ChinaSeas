@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('myApp.view2')
-.factory('portFactory', ['$http', 
+angular.module('myApp')
+.factory('portFactory', ['$http',
                         '$timeout',
-                        function($http, 
+                        function($http,
                                 $timeout) {
-    
+
     var portGoods = [];
     var portWealth;
     var factory = this;
@@ -80,7 +80,7 @@ angular.module('myApp.view2')
             for(var i = 0; i < response.length; i++){
                 portGoods.push(response[i]);
             };
-          
+
         }).catch(function(error){
             console.log('error');
         });
@@ -108,4 +108,3 @@ angular.module('myApp.view2')
 
 
 }]);
-
