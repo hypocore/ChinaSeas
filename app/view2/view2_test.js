@@ -5,7 +5,7 @@ describe('myApp.View2Ctrl module', function() {
   beforeEach(module('myApp.view2'));
 
   // beforeEach(module('myApp.view2', function($provide) {
-  //     $provide.factory('portFactory', function ($http, $timeout) { 
+  //     $provide.factory('portFactory', function ($http, $timeout) {
 
   //   var portGoods = [];
   //   var portWealth;
@@ -81,7 +81,7 @@ describe('myApp.View2Ctrl module', function() {
   //           for(var i = 0; i < response.length; i++){
   //               portGoods.push(response[i]);
   //           };
-          
+
   //       }).catch(function(error){
   //           console.log('error');
   //       });
@@ -124,7 +124,7 @@ describe('myApp.View2Ctrl module', function() {
     scope = $rootScope.$new();
     $q = _$q_;
     portFactory = _portFactory_;
-    
+
     view2Ctrl = $controller('View2Ctrl', {$scope: scope});
 
   }));
@@ -217,7 +217,7 @@ describe('myApp.View2Ctrl module', function() {
   describe('spyOn(someObject, \'someFunction\').and.callThrough()', function(){
 
     beforeEach(function(){
-      
+
       spyOn(view2Ctrl, 'buyProduct').and.callThrough();
       view2Ctrl.buyProduct(view2Ctrl.localgoods[0]);
     });
@@ -253,7 +253,7 @@ describe('myApp.View2Ctrl module', function() {
 
     var initialQuantity;
     beforeEach(function(){
-      
+
     spyOn(view2Ctrl, 'buyProduct').and.callFake(function(fakeProduct){
       fakeProduct.quantity -= 3;
     });
@@ -290,7 +290,7 @@ describe('myApp.View2Ctrl module', function() {
 
 
 
- 
+
 
   describe('Message on test with broadcast from test', function(){
 
@@ -359,7 +359,7 @@ describe('myApp.View2Ctrl module', function() {
 
       view2Ctrl.checkSafeWeather();
       done();
-      
+
 
       // rootScope.$digest();
 
@@ -374,7 +374,7 @@ describe('myApp.View2Ctrl module', function() {
 
     beforeEach(function(){
       jasmine.clock().install();
-      
+
     });
 
     afterEach(function(){
@@ -386,7 +386,7 @@ describe('myApp.View2Ctrl module', function() {
     });
 
     it('should fail to increment quantity if no time has been artifically passed', function(){
-      
+
       expect(view2Ctrl.localgoods[0].quantity).toBe(50);
     });
 
@@ -439,11 +439,11 @@ describe('myApp.View2Ctrl module', function() {
       view2Ctrl.produceGoods(view2Ctrl.localgoods[0]);
       $httpBackend.flush();
       $timeout.flush();
-      
-      // timeout.flush(0) is only required when there is an httpBackend call 
+
+      // timeout.flush(0) is only required when there is an httpBackend call
       // that hasn't been flushed before calling timeout
       // $timeout.flush(0);
-      
+
 
       expect(view2Ctrl.localgoods[0].quantity).toBe(51);
     });

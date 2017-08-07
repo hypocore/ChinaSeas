@@ -6,7 +6,7 @@ angular.module('myApp', [
   'ngAnimate',
   'myApp.view1',
   'myApp.view2',
-  'myApp.portArea',
+  'myApp.dockArea',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -4221,7 +4221,7 @@ angular.module('myApp.view2', ['ngRoute'])
 }]);
 ;'use strict';
 
-angular.module('myApp.portArea', ['ngRoute'])
+angular.module('myApp.dockArea', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/port', {
@@ -4404,7 +4404,7 @@ angular.module('myApp.view2')
 
 ;'use strict';
 
-angular.module('myApp.portArea')
+angular.module('myApp.dockArea')
 .controller('PortController', ['$scope',
                             '$rootScope',
                             'portFactory',

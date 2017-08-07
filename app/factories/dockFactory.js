@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('myApp.view2')
-.factory('portFactory', ['$http',
+angular.module('myApp.dockArea')
+.factory('dockFactory', ['$http',
                         '$timeout',
                         function($http,
                                 $timeout) {

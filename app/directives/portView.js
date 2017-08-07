@@ -1,9 +1,9 @@
-angular.module('myApp')
+angular.module('myApp.dockArea')
 .directive("portView", ['$timeout', function($timeout){
   return {
     restrict: 'A',
     link: link,
-    controller: 'PortController',
+    controller: 'dockController',
     controllerAs: 'vm'
 
     }

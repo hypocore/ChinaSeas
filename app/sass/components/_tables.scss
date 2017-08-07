@@ -1,0 +1,29 @@
+.sortable-table {
+
+
+  & button{
+    // centers content inside buttons
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // centers buttons in table cells
+    margin: auto;
+  }
+
+  & td {
+    // centers text in the data cells
+    text-align: center;
+  }
+
+  &--sort-arrows{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    margin: 0 0 0 0.3rem;
+    & img {
+      width: 20px;
+
+    }
+  }
+
+}

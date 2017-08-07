@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.portArea', ['ngRoute'])
+angular.module('myApp.dockArea', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/port', {

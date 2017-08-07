@@ -1,17 +1,17 @@
 'use strict';
 
-angular.module('myApp.portArea')
-.controller('PortController', ['$scope',
+angular.module('myApp.dockArea')
+.controller('dockController', ['$scope',
                             '$rootScope',
-                            'portFactory',
+                            'dockFactory',
                             function($scope,
                                     $rootScope,
-                                    portFactory) {
+                                    dockFactory) {
 
     var vm = this;
 
     angular.extend(vm, {
-        portGoods: {},
+        dockGoods: {},
         example: '',
         example2: 0,
         init: init
@@ -20,9 +20,9 @@ angular.module('myApp.portArea')
     init();
 
     function init(){
-      console.log('port controller initialized');
+      console.log('dock controller initialized');
       // fetch the json data here, but it's the wrong time to get it.
-      vm.portGoods = portFactory.getPortGoods();
+      vm.dockGoods = dockFactory.getPortGoods();
     }
 
 }]);
